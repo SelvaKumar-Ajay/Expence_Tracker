@@ -39,6 +39,11 @@ class BarGraph extends StatelessWidget {
 
     return BarChart(
       BarChartData(
+          barTouchData: BarTouchData(
+            touchTooltipData: BarTouchTooltipData(
+              tooltipBgColor: Colors.grey[200],
+            ),
+          ),
           maxY: maxY,
           minY: 0,
           titlesData: FlTitlesData(

@@ -20,6 +20,14 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController addNewExpenceAmountController =
       TextEditingController();
 
+  @override
+  void initState() {
+    super.initState();
+
+    //prepare data
+    Provider.of<ExpenceData>(context, listen: false).prepareData();
+  }
+
 //Addnewexpence floating button onpress function
   void addNewExpence() {
     showDialog(
@@ -77,6 +85,10 @@ class _HomePageState extends State<HomePage> {
     addNewExpenceNameController.clear();
   }
 
+  void deleteExpence(ExpenceItem expence) {
+    Provider.of<ExpenceData>(context, listen: false).deleteExpence(expence);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ExpenceData>(
@@ -104,6 +116,8 @@ class _HomePageState extends State<HomePage> {
                 amount: ExpenceDataValue.getAllExpenceList()[i].amount,
                 dateTime: ExpenceDataValue.getAllExpenceList()[i].dateTime,
                 name: ExpenceDataValue.getAllExpenceList()[i].name,
+                deleteTrapped: (BuildContext pO) =>
+                    deleteExpence(ExpenceDataValue.getAllExpenceList()[i]),
               ),
             ),
           ]),

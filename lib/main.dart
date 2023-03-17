@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+// import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 
 import 'data/expence_data.dart';
 import 'pages/homepage.dart';
 
-void main() {
+void main() async {
+  //init hive database
+  await Hive.initFlutter();
+
+  //Open hive box
+  await Hive.openBox("expenceDB");
+
+  //runAPp should be last or else above codes are will be not work
   runApp(const MyApp());
 }
 
