@@ -30,8 +30,17 @@ class _HomePageState extends State<HomePage> {
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                TextField(controller: addNewExpenceNameController),
-                TextField(controller: addNewExpenceAmountController),
+                TextField(
+                  controller: addNewExpenceNameController,
+                  decoration: const InputDecoration(hintText: "Expence Name"),
+                ),
+                TextField(
+                  controller: addNewExpenceAmountController,
+                  decoration: const InputDecoration(
+                    hintText: "Spended Amount",
+                  ),
+                  keyboardType: TextInputType.number,
+                ),
               ],
             ),
             actions: [
