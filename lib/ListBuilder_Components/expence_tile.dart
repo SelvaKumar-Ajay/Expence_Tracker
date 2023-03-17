@@ -22,6 +22,8 @@ class ExpenceListTile extends StatelessWidget {
           SlidableAction(
             onPressed: deleteTrapped,
             icon: Icons.delete,
+            backgroundColor: Colors.redAccent,
+            borderRadius: BorderRadius.circular(15.0),
           )
         ]),
         child: ListTile(
