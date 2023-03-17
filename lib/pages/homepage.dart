@@ -75,11 +75,15 @@ class _HomePageState extends State<HomePage> {
 
 //addNewexpence function save button onpress function
   void save() {
-    ExpenceItem newExpence = ExpenceItem(
-        name: addNewExpenceNameController.text,
-        amount: addNewExpenceAmountController.text,
-        dateTime: DateTime.now());
-    Provider.of<ExpenceData>(context, listen: false).addNewExpence(newExpence);
+    if (addNewExpenceAmountController.text.isNotEmpty &&
+        addNewExpenceNameController.text.isNotEmpty) {
+      ExpenceItem newExpence = ExpenceItem(
+          name: addNewExpenceNameController.text,
+          amount: addNewExpenceAmountController.text,
+          dateTime: DateTime.now());
+      Provider.of<ExpenceData>(context, listen: false)
+          .addNewExpence(newExpence);
+    }
     Navigator.pop(context);
     addNewExpenceAmountController.clear();
     addNewExpenceNameController.clear();
